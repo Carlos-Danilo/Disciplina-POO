@@ -20,8 +20,8 @@ class retangulo:
     def set_diagonal (self):
         return self.__base**2 + self.__altura**2
 
-x=retangulo
-
+    def __str__(self):
+        return f"Base = {self.__base}- Altura {self.__altura}"
 
 
 
