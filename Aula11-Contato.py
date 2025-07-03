@@ -1,3 +1,4 @@
+import random
 class Contato:
     def __init__(self, i, n, e, f):
         self.__id = i
@@ -34,12 +35,19 @@ class ContatoUI:
     
     @classmethod
     def inserir(cls):
-        id = int(input("Informe o id do contato: "))
+        id = cls.id_unico()
         nome = input("Informe o nome: ")
         email = input("Informe o e-mail: ")
         fone = input("Informe o fone: ")
         c = Contato(id, nome, email, fone)
         cls.__contatos.append(c)
+
+    def id_unico(cls):
+        while True:
+            novo_id = random.randint(1000, 9999)
+            if cls.listar_id(novo_id):
+                return novo_id
+
 
     @classmethod
     def listar(cls):
